@@ -1,0 +1,27 @@
+<div class="contenedor-grande">
+
+    <h1>{{title}}</h1>
+    <div class="contenedor-mediano">
+      <div class="contenedor-nueva-tarea">
+        <input  [(ngModel)]="porhacer.nombre" type="text" name="Nueva tarea" id="new-por-hacer" placeholder="Ingresar Nueva tarea"><button type="button" name="button" id="btn-agregar" (click)="agregar(porhacer)"><i class="fas fa-plus"></i></button>
+      </div>
+      <div class="contenedor-tareas">
+        <ul>
+          <div *ngFor="let item of items" class="elemento">
+            <li>
+              <!-- <div *ngIf="item.listo === true">
+                <p>{{item.nombre}}</p>
+              </div>
+              <ng-template #elseBlock><p>{{item.nombre}} hecho</p></ng-template> -->
+              <p [ngClass]="{'strike':item.listo}" >{{item.nombre}}</p>
+              <div class="botones">
+                <div (click)="hecho(item)"><i class="fas fa-check"></i></div>
+                <div (click)="eliminar(item)"><i class="fas fa-trash-alt"></i></div>
+              </div>
+            </li>
+          </div>
+        </ul>
+      </div>
+    </div>
+
+</div>
